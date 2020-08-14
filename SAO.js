@@ -28,13 +28,26 @@ function textChanged() {
     document.body.style.color = 'red';
     document.getElementById("times").value=null;
 }
-function sum() {
+/*function sum() {
     // parseInt("1"); => 1
     // valie = "1"
     // parseInt(value) => 1
     document.getElementById("sum").value = parseInt(document.getElementById("number-one").value) + parseInt(document.getElementById("number-two").value) ;
+}*/
+function operation() {
+    if (document.getElementById("EnterTheOperator").value == "+" ){
+        document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) + parseInt(document.getElementById("number-two").value);
+    } else if (document.getElementById("EnterTheOperator").value == "-") {
+            document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) - parseInt(document.getElementById("number-two").value);
+        } else if (document.getElementById("EnterTheOperator").value == "/"){
+                document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) / parseInt(document.getElementById("number-two").value);
+            } else if (document.getElementById("EnterTheOperator").value == "*"){
+                    document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) * parseInt(document.getElementById("number-two").value);
+                 }else {
+                        alert("Give correct operator");
+                    }
+    
 }
-
 /*
 Write a Field where I take in the operator and do the operation based on the operator
 number-one: 1
