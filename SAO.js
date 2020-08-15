@@ -43,7 +43,7 @@ function operation() {
                 document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) / parseInt(document.getElementById("number-two").value);
             } else if (document.getElementById("EnterTheOperator").value == "*"){
                     document.getElementById("operator").value = parseInt(document.getElementById("number-one").value) * parseInt(document.getElementById("number-two").value);
-                 }else {
+                }else {
                         alert("Give correct operator");
                     }
     
@@ -63,3 +63,39 @@ sum: 3
 //     //WElcome to SAO, Sumanth!
 //     // "Sumanth" + " Balusu" = "Sumanth Balusu"
 // });
+
+
+//DOM manupulation.
+async function callAPI1() {
+    // Have to make an API call.
+    var data = null;
+    var response = await fetch("https://api.covid19india.org/raw_data1.json", {mode: 'cors'});
+    if(response.ok) {
+        data = await response.text();
+    }
+    document.getElementById("ip-infoLink1").innerHTML = data;
+}
+async function callAPI2() {
+    // Have to make an API call.
+    var data1 = null;
+    var response1 = await fetch("https://api.covid19india.org/v4/timeseries.json", {mode: 'cors'});
+    if (response1.ok) {
+        data1 = await response1.text();
+    }
+    document.getElementById("ip-infoLink2").innerHTML = data1;
+}
+async function callAPI3(){
+    var data2 = null;
+    var responce2 = fetch("https://jsonplaceholder.typicode.com/posts", {mode: 'cors'} );
+    if (responce2.ok){
+        data2 = await responce2.text();
+    }
+    document.getElementById("ip-infoLink3").innerHTML = data2;
+}
+/*
+https://api.covid19india.org/raw_data1.json
+https://api.covid19india.org/v4/timeseries.json
+
+Call the link If I click on Link 1 Call the first link
+if I click on second link call the second link.
+*/
