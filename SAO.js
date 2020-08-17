@@ -86,12 +86,58 @@ async function callAPI2() {
 }
 async function callAPI3(){
     var data2 = null;
-    var responce2 = fetch("https://jsonplaceholder.typicode.com/posts", {mode: 'cors'} );
+    var responce2 = await fetch("https://jsonplaceholder.typicode.com/posts", {mode: 'cors'} );
     if (responce2.ok){
-        data2 = await responce2.text();
+        data2 = await responce2.json();
     }
-    document.getElementById("ip-infoLink3").innerHTML = data2;
+    var x = data2.length
+    for(i=0; i < x; i++) {
+        document.getElementById("ip-infoLink3").innerHTML += "<br>" +data2[i].title;
+    }    
 }
+
+/*
+Primary Task
+
+user-id = 1
+id = 1
+title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
+
+----------------------------------------------------------------------------------------------------------------------------
+
+user-id = 1
+id = 2
+title = qui est esse
+body =  est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/*
+Secondary Task
+------------------------------------------------------------------------------------------------------------------------------------------------------
+user-id = 1
+id = 1
+title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
+--------------------------------------------------------------------------------------------------------------------------------------------
+user-id = 1
+id = 1
+title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+************************************* END **********************************************************
+*/
+
+/*
+Third Task
+Input Would be a number b/w -99999999999999-100, a-z, A-Z, !@#$%%
+Valid: 0-100 
+Not Valid (Red Color)
+In case of valid Number Data should filtered based on ID.
+*/
+
 /*
 https://api.covid19india.org/raw_data1.json
 https://api.covid19india.org/v4/timeseries.json
