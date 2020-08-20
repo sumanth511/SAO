@@ -96,6 +96,50 @@ async function callAPI3(){
     }    
 }
 
+async function exercise1() {
+    var bla = null;
+    var blu = await fetch("https://jsonplaceholder.typicode.com/posts", {mode:"cors"});
+    if(blu.ok){
+        bla = await blu.json();
+    }
+    var y = bla.length;
+    for (i = 0; i < y; i++) {
+        document.getElementById("exer1").innerHTML += "<br>" + bla[i].userId + "<br>" + bla[i].id + "<br>" + bla[i].title + "<br>" + bla[i].body + "<br>" + Array(150).join("-");
+    }
+
+}
+
+async function exercise2() {
+    var bla1 = null;
+    var blu1 = await fetch("https://jsonplaceholder.typicode.com/posts", {mode: "cors"});
+    if (blu1.ok) {
+        bla1 = await blu1.json();
+    }
+    var n = bla1.length;
+    for (i = 0; i < n; i++) {
+        document.getElementById("exer2").innerHTML += Array(150).join("-") + "<br>" + bla1[i].userId + "<br>" + bla1[i].id + "<br>" + bla1[i].title + "<br>" + bla1[i].body + "<br>";
+    }
+    document.getElementById("exer2").innerHTML += Array(150).join("-");
+}
+
+function random1() {
+    let num = document.getElementById("exer3").value;
+    if ( typeof num == 'number'){
+        document.getElementById("exer").innerHTML="VALID";
+    }
+}
+
+async function exercise3() {
+    var point = document.getElementById("exer4").value;
+    var bla2 = null;
+    var blu2 = await fetch("https://jsonplaceholder.typicode.com/posts", { mode: "cors" });
+    if (blu2.ok) {
+        bla2 = await blu2.json();
+    }
+    document.getElementById("exer5").innerHTML += '<br>' + bla2[point-1].id + "<br>" + bla2[point-1].userId + '<br>' + bla2[point-1].title + '<br>' + bla2[point-1].body; 
+}
+
+
 /*
 Primary Task
 
