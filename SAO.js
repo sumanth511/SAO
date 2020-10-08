@@ -139,55 +139,32 @@ async function random1() {
         document.body.style.color = 'red';
     }
 }
-
-
-
-/*
-Primary Task
-
-user-id = 1
-id = 1
-title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
-
-----------------------------------------------------------------------------------------------------------------------------
-
-user-id = 1
-id = 2
-title = qui est esse
-body =  est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-/*
-Secondary Task
-------------------------------------------------------------------------------------------------------------------------------------------------------
-user-id = 1
-id = 1
-title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
---------------------------------------------------------------------------------------------------------------------------------------------
-user-id = 1
-id = 1
-title = sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-body = quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-************************************* END **********************************************************
-*/
-
-/*
-Third Task
-Input Would be a number b/w -99999999999999-100, a-z, A-Z, !@#$%%
-Valid: 0-100 
-Not Valid (Red Color)
-In case of valid Number Data should filtered based on ID.
-*/
-
-/*
-https://api.covid19india.org/raw_data1.json
-https://api.covid19india.org/v4/timeseries.json
-
-Call the link If I click on Link 1 Call the first link
-if I click on second link call the second link.
-*/
+//new work
+async function random2(){
+    let a = null;
+    a = document.getElementById("NumberforData").value;
+    if (!isNaN(a) && a <= 100 && a >= 0) {
+        var p = document.getElementById("NumberforData").value;
+        var b = null;
+        var c = await fetch("https://jsonplaceholder.typicode.com/posts", { mode: "cors" });
+        if (c.ok) {
+            b = await c.json();
+        }
+        document.getElementById("d1").innerHTML += "<table>";
+        document.getElementById("d1").innerHTML += "<th>";
+        document.getElementById("d1").innerHTML += b[p-1].id;
+        document.getElementById("d2").innerHTML += "<th>";
+        document.getElementById("d2").innerHTML += "<table>";
+        document.getElementById("d2").innerHTML += "<th>";
+        document.getElementById("d2").innerHTML += b[p-1].userId;
+        document.getElementById("d2").innerHTML += "<th>";
+        document.getElementById("d3").innerHTML += "<table>";
+        document.getElementById("d3").innerHTML += "<th>";
+        document.getElementById("d3").innerHTML += b[p - 1].title;
+        document.getElementById("d3").innerHTML += "<th>";
+        document.getElementById("d4").innerHTML += "<table>";
+        document.getElementById("d4").innerHTML += "<th>";
+        document.getElementById("d4").innerHTML += b[p - 1].body;
+        document.getElementById("d4").innerHTML += "<th>";
+    } 
+ }
